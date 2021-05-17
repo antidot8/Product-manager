@@ -8,8 +8,11 @@ import lombok.EqualsAndHashCode;
 public class Smartphone extends Product {
   private String manufacturer;
 
-  public Smartphone() {
-    super();
+  public boolean matches(String search) {
+    if (super.matches(search)) {
+      return true;
+    }
+    return getManufacturer().equalsIgnoreCase(search);
   }
 
   public Smartphone(int id, String name, int price, String manufacturer) {

@@ -8,6 +8,13 @@ public class Product {
   private String name;
   private int price;
 
+  public boolean matches(String search) {
+    if (getName().equalsIgnoreCase(search)) {
+      return true;
+    }
+    return false;
+  }
+
   public Product() {
   }
 
@@ -15,9 +22,5 @@ public class Product {
     this.id = id;
     this.name = name;
     this.price = price;
-  }
-
-  public int getId() {
-    return id;
   }
 }

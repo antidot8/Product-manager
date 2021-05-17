@@ -16,6 +16,7 @@ public class ProductManagerTest {
     private Book book2 = new Book(2, "title1", 110, "author2", 300, 2021);
     private Smartphone smartphone1 = new Smartphone(3, "phone1", 2000, "manufacturer1");
     private Smartphone smartphone2 = new Smartphone(4, "phone2", 2000, "manufacturer1");
+    private Product product1 = new Product(5, "item2", 500);
 
     @BeforeEach
     void setUp() {
@@ -71,6 +72,14 @@ public class ProductManagerTest {
     public void searchByManufacturer() {
         Product[] expected = new Product[]{smartphone1, smartphone2};
         Product[] actual = manager.searchBy("manufacturer1");
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void searchInProduct() {
+        Product[] expected = new Product[]{product1};
+        manager.add(product1);
+        Product[] actual = manager.searchBy("item2");
         assertArrayEquals(expected, actual);
     }
 }
